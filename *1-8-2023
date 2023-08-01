@@ -1,0 +1,22 @@
+1.Retrieve all the standard fields from lead
+  = [Select Fields(Standard) From Lead Limit 200];
+2.Retrieve all the custom fields from lead
+  = [Select Fields(Custom) From Lead Limit 200];
+3.Write a SOQL to get All Account records which are created today.
+  = [Select Id, Name From Lead Where CreatedDate = Today];
+4.Write a SOQL to get all Closed-Won Stage Opportunities or Closed Date is greater than 90 days.
+  =[Select Id, StageName From Opportunity Where StageName = 'Closed Won' OR CreatedDate > Last_N_Days:90];
+  OR
+  =[Select Id, StageName From Opportunity Where StageName = 'Closed Won' OR CreatedDate > Next_90_days ];
+5.Write a SOQL to get all Account records having AnnualRevenue between 5000 and 10000.
+  =[Select Id,AnnualRevenue From Account Where AnnualRevenue > 5000 AND AnnualRevenue < 10000];
+6. query Total amount of opportunity Grouped by their stage
+  =[Select StageName,Sum(Amount) From Opportunity Group BY StageName];
+7. retrieve the subject and created date of three most recent Case records 
+  =[Select subject, CreatedDate From Case Order BY CreatedDate DESC Limit 3];
+8.Retrieve the subject and ContactEmail of third most recent Case records
+  =[Select subject, ContactEmail From Case Order BY CreatedDate DESC Limit 1 offset 2];
+9.Get contact order by account creation date
+  =[Select Id, Name, (select Id, Name, CreatedDate From Contacts order by CreatedDate ) From Account];
+10. Get all contact records those have Parent Account, those who don’t have any parent account should be skipped.
+  =[Select Id, AccountId From Contact where AccountId != Null];
