@@ -1,0 +1,22 @@
+1.Create an isActive checkbox field on Account Object. Write a SOQL query that will get all Opportunity records having Parent Account isActive checkbox checked.
+  = [Select id, Name, account.isActive__c From Opportunity Where Account.isActive__c = True];
+2. Get the 5th highest Amount from Opportunity records. Get only that particular single record.
+  = [Select id, amount From Opportunity Order By Amount desc Limit 1 OffSet 4];
+3.Select all Account records with Name starts with 'AW'
+  = [Select id, name From Opportunity where name like 'opp%'];
+4. Select all Account records with 'AW' in between Name
+  =[Select id, name From Opportunity where name like '%opp%'];
+5.Select all Account records with Name having 8 character ending with 'test'.
+  =[Select id, name From Opportunity where name like '____Test'];
+6. Write a SOQL Query which will get only those Account Records having no child contacts.
+  =[SELECT id,name FROM Account WHERE Id NOT IN (Select AccountId From Contact)];
+7. Write a SOQL query that will Count a number of Prospecting stage names from opportunities.
+  =[SELECT COUNT(StageName) FROM Opportunity WHERE StageName = 'Prospecting'];
+8.Retrieve all lead records that are converted into opportunity.
+  =[Select id, Name, ConvertedOpportunityId From Lead where IsConverted = true];
+9.Retrieve all Opportunity records with the Close date of Current quarter.
+  =[Select Name From Opportunity where CloseDate = THIS_QUARTER ];
+
+SOSL:-
+10.query to search “Account” text in only the Account, Contact, and Opportunity objects.
+  =[Find {Account} Returning Account, Contact, opportunity];
