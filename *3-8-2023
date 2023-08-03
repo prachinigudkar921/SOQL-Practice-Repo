@@ -6,15 +6,15 @@
   = [select name, (Select Email from contacts) from account];
 4. Retrieve custom object students records with branch Pune. 
   =[select name, Branch__r.Name from Student__c];
-5.
-  =[Select id, name From Opportunity where name like '____Test'];
-6. 
-  =[SELECT id,name FROM Account WHERE Id NOT IN (Select AccountId From Contact)];
-7. 
-  =[SELECT COUNT(StageName) FROM Opportunity WHERE StageName = 'Prospecting'];
-8.
-  =[Select id, Name, ConvertedOpportunityId From Lead where IsConverted = true];
-9.
-  =[Select Name From Opportunity where CloseDate = THIS_QUARTER ];
-10.
-  =[Select Name From Opportunity where CloseDate = THIS_QUARTER ];
+5.Retrieve the total amount of closed- Won opportunities for each account.
+  =[select sum(amount), account.name from opportunity where StageName = 'Closed Won' group by Account.Name];
+6. Retrieve all Asset with the quantity is less than 10
+  =[select Name, Quantity from Asset where Quantity < 10];
+7. retrieve all tasks that are overdue and are assigned to current user
+  =[select Subject, ActivityDate from Task where IsClosed =false AND ActivityDate < TODAY AND OwnerId ='0055i000001qBK8AAM'];
+8.retrieve all the opportunities that have close date in the next 30 days
+  =[select name, StageName from opportunity where CloseDate >= NEXT_N_DAYS:30];
+9.Retrieve cases created for the specific account in the last week
+  =[Select Account.Name from Case where AccountId = '0015i00000uHjtDAAS' and CreatedDate = LAST_WEEK];
+10.query the total number of Leads by source
+  =[select LeadSource, COUNT(id) from lead group by LeadSource];
