@@ -1,3 +1,20 @@
 1.How to get count of opportunities related with an account
   =[SELECT count(id), AccountId FROM Opportunity GROUP BY AccountId];
-2.
+2. Retrieve count of cases created in the last 30 days.
+  = [select count(Id) from Case where CreatedDate = Last_N_Days:30];
+3.Retrieve all account name and their related contact email addresses.
+  = [select name, (Select Email from contacts) from account];
+4. Retrieve custom object students records with branch Pune. 
+  =[select name, Branch__r.Name from Student__c];
+5.
+  =[Select id, name From Opportunity where name like '____Test'];
+6. 
+  =[SELECT id,name FROM Account WHERE Id NOT IN (Select AccountId From Contact)];
+7. 
+  =[SELECT COUNT(StageName) FROM Opportunity WHERE StageName = 'Prospecting'];
+8.
+  =[Select id, Name, ConvertedOpportunityId From Lead where IsConverted = true];
+9.
+  =[Select Name From Opportunity where CloseDate = THIS_QUARTER ];
+10.
+  =[Select Name From Opportunity where CloseDate = THIS_QUARTER ];
