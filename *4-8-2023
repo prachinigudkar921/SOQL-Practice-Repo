@@ -2,19 +2,19 @@
   =[select Name from employee__c where designation__c like'%manager'];
 2.retrieve all the account name and their associated opportunities that have close date within current month
   =[select Name, (Select name, createdDate from opportunities where closeDate = This_month) from account];
-3.
-  =[];
-4.
-  =[];
-5.
-  =[];
+3.find all leads that were created in the last 7 days and are not yet converted
+  =[select name from lead where IsConverted = false AND CreatedDate = Last_n_days:7];
+4.find the name, email, phone number of all the contacts where account rating is hot.
+  =[select name, email, phone from Contact where Account.Rating ='Hot'];
+5.retrieve all the Account records with contacts where leadsource value of contact should not be web
+  =[select name, LeadSource, Account.id from contact where LeadSource != 'Web'];
 6.retrieve the opportunities with a stageName of 'Closed-won' and amount greater than 1000
   =[select name, stagename from Opportunity where StageName ='Closed Won' AND Amount >1000];
-7.
-  =[];
-8.
-  =[];
-9.
-  =[];
-10.
-  =[];
+7.retrieve all the case records ordered by account record name
+  =[select id from Case Order By Account.Name ];
+8.retrieve all the student records where completed education includes SSC and Diploma
+  =[Select Name, Email__c from Student__c where Completed_Education__c includes ('SSC' ,'Diploma')];
+9.retrieve the LeadSource values that have generated more than 10 leads
+  =[SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) > 10];
+10.retrive all the leads status and count of name group by status
+  =[SELECT Status, COUNT(Name) FROM Lead GROUP BY Status];
