@@ -1,0 +1,20 @@
+1.retrieve all the employee records which have manager in their job title
+  =[select Name from employee__c where designation__c like'%manager'];
+2.retrieve all the account name and their associated opportunities that have close date within current month
+  =[select Name, (Select name, createdDate from opportunities where closeDate = This_month) from account];
+3.
+  =[];
+4.
+  =[];
+5.
+  =[];
+6.retrieve the opportunities with a stageName of 'Closed-won' and amount greater than 1000
+  =[select name, stagename from Opportunity where StageName ='Closed Won' AND Amount >1000];
+7.
+  =[];
+8.
+  =[];
+9.
+  =[];
+10.
+  =[];
