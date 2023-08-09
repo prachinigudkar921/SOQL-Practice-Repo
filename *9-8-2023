@@ -10,3 +10,6 @@
   =[select name from Account where Name like 'Acc%' ];
 6.Retrive the number of lead records grouped by leadsources
   =[select count(Name) from lead group by LeadSource];
+7. Retrieve all the standard fields from lead
+  = [Select Fields(Standard) From Lead Limit 200];
+8.
