@@ -14,4 +14,7 @@
   = [Select Fields(Standard) From Lead Limit 200];
 8.Retrieve all opportunities with the Amount less than 10000
   =[select Name, Amount from Opportunity where Amount < 10000];
-
+9. retrive all the Opportunity Stage and count of name group by Stage
+  =[SELECT StageName, COUNT(Name) FROM Opportunity GROUP BY StageName];
+10. retrieve five most recent accounts
+  =[Select id from account limit 5 order by DESC].
