@@ -12,4 +12,6 @@
   =[select count(Name) from lead group by LeadSource];
 7. Retrieve all the standard fields from lead
   = [Select Fields(Standard) From Lead Limit 200];
-8.
+8.Retrieve all opportunities with the Amount less than 10000
+  =[select Name, Amount from Opportunity where Amount < 10000];
+
