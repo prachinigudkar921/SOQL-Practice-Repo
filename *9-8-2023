@@ -1,0 +1,12 @@
+1. Retrieve data from objects that are related to one another.
+  =[Select id, name, (Select id from Contact) From Account];
+2.Count the number of Contacts that have Web leadSource.
+  =[Select count(Id) From Contact Where Leadsource= 'Web'];
+3.Retrieve third most Contact that have Leadsorce as Email
+  =[select Id From Contact where LeadSource = 'Web' Limit 1 OffSet 2 ];
+4.Retrieve student records who have birthday within last 3 days
+  =[select Id, name, Birth_Date__c From Student__c where Birth_Date__c= last_N_Days: 3];
+5.Retrieve all names from account where name starts with acc
+  =[select name from Account where Name like 'Acc%' ];
+6.Retrive the number of lead records grouped by leadsources
+  =[select count(Name) from lead group by LeadSource];
