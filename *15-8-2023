@@ -1,0 +1,21 @@
+SOSL:-
+1. SOSL to search ‘Test’ text in all fields and return Account Object’s name, industry as result.
+  =find {Test} In All Fields Returning Account (Name, Industry)
+2. SOSL to search ‘Web’ text in all fields and return Account Object’s name and Contact Object’s name, lead source, email as result.
+  =find {Web} In All Fields Returning Account (Name), Contact (Name, Email, LeadSource)
+3. Search Account starting with "Acc" and retrieve account name, phone, createdDate which were created in this quarter
+  =FIND {Acc}IN Name Fields RETURNING Account (name, phone, createdDate Where createddate = THIS_FISCAL_QUARTER)
+4. SOSL to serch 'cary' in all fields to return the contacts created in last 3 days.
+  =FIND {Cary}IN All Fields RETURNING Contact (name, createdDate Where createddate = Last_n_days:3)
+5. SOSL to search and retrieve five opportunities having 'opp' in name 
+  =FIND {Opp}IN Name Fields RETURNING Opportunity(Name Limit 5)
+6. SOSL to search and retrieve the 3rd most opportunity having 'opp' in name
+  =FIND {Opp}IN Name Fields RETURNING Opportunity (name Limit 1 Offset 2)
+7. SOSL to search name fields and retrieve name of accounts that were created last month   
+  =Find {Acc} In name Fields returning account (Name where createddate = Last_Month)
+8.Retrieve all the opportunities who have close date of tomorrow
+  =[Select id, Name, CloseDate from opportunity where closeDate= tomorrow];
+9. Retrieve opportunity records having close date of this year
+  = [Select id, Name, CloseDate from opportunity where closeDate= THIS_YEAR];
+10. Retrive the Maximum opportunity amount.
+  = [Select Max(Amount) From Opportunity];
