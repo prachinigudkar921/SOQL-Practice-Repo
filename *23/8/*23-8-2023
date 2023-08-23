@@ -14,4 +14,5 @@
   =FIND {con}IN Name Fields RETURNING Contact(Name Limit 5)
 8. query Total amount product family of active Products.
   =[Select count(Family) From product2 where IsActive = True];
-9. 
+9. Write a SOQL to get all Closed-Won Stage Opportunities or Closed Date is greater than 90 days.
+  =[Select Name, StageName from Opportunity where StageName = 'Closed Won' AND CloseDate> LAST_N_DAYS:90 ];
