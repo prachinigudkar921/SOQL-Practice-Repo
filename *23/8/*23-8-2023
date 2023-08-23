@@ -10,4 +10,6 @@
   =[select Name, CloseDate, StageName from Opportunity where Account.Rating ='Warm'];
 6. .Retrieve all Opportunity records with the created date of Current week.
   =[Select Name From Opportunity where CreatedDate = THIS_WEEK];
-7. 
+7. SOSL to search and retrieve five Contact having 'con' in name 
+  =FIND {con}IN Name Fields RETURNING Contact(Name Limit 5)
+8. 
