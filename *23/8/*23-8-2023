@@ -16,3 +16,5 @@
   =[Select count(Family) From product2 where IsActive = True];
 9. Write a SOQL to get all Closed-Won Stage Opportunities or Closed Date is greater than 90 days.
   =[Select Name, StageName from Opportunity where StageName = 'Closed Won' AND CloseDate> LAST_N_DAYS:90 ];
+10.Get Opportunity Id From OpportunityLineItems order by Opportunity Close date
+  =[Select Id, Name, (select OpportunityId From OpportunityLineItems) From Opportunity order by CloseDate];
