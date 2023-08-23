@@ -4,4 +4,5 @@
   = [Select Fields(Custom) From Lead Limit 100];
 3. Select all Account records with 'ac' in between Name
   =[Select id, name From Opportunity where name like '%ac%'];
-4.
+4. retrieve the LeadSource values that have generated more than 10 leads
+  =[SELECT LeadSource, COUNT(Name) FROM Lead GROUP BY LeadSource HAVING COUNT(Name) > 10];
