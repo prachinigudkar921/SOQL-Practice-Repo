@@ -12,4 +12,6 @@
   =[Select Name From Opportunity where CreatedDate = THIS_WEEK];
 7. SOSL to search and retrieve five Contact having 'con' in name 
   =FIND {con}IN Name Fields RETURNING Contact(Name Limit 5)
-8. 
+8. query Total amount product family of active Products.
+  =[Select count(Family) From product2 where IsActive = True];
+9. 
