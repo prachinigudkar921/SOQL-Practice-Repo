@@ -1,4 +1,7 @@
 1. retrieve those case records that does not have related workOrders
   =[select id From Case Where Id Not In (Select CaseId from WorkOrder)];
-2.Retrieve all the Custom fields from lead
+2. Retrieve all the Custom fields from lead
   = [Select Fields(Custom) From Lead Limit 100];
+3. Select all Account records with 'ac' in between Name
+  =[Select id, name From Opportunity where name like '%ac%'];
+4.
