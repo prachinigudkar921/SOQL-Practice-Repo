@@ -1,3 +1,6 @@
-1.retrieve all the employee records which have manager in their job title
+1. Retrieve all the employee records which have manager in their job title
   =[select Name from employee__c where designation__c like'%manager'];
-2.
+2. Retrieve count of leads created in the last 10 days.
+  = [select count(Id) from Lead where CreatedDate = Last_N_Days:10];
+3.Retrieve all Opportunity name and their related Products email addresses.
+  = [select name, (Select Id from OpportunityLineItems) from Opportunity];
