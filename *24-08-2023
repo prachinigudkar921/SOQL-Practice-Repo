@@ -14,3 +14,7 @@
   =[Select Id, Name, (select Id, Name, CreatedDate From Contacts order by CreatedDate ) From Account];
 8. Get all contact records those have Parent Account, those who don’t have any parent account should be skipped.
   =[Select Id, AccountId From Contact where AccountId != Null];
+9. SOSL to search and retrieve five opportunities having 'opp' in name 
+  =FIND {Opp}IN Name Fields RETURNING Opportunity(Name Limit 5)
+10. SOSL to search and retrieve the 3rd most opportunity having 'opp' in name
+  =FIND {Opp}IN Name Fields RETURNING Opportunity (name Limit 1 Offset 2)
