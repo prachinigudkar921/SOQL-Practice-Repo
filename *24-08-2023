@@ -4,3 +4,5 @@
   = [select count(Id) from Lead where CreatedDate = Last_N_Days:10];
 3.Retrieve all Opportunity name and their related Products email addresses.
   = [select name, (Select Id from OpportunityLineItems) from Opportunity];
+4. Retrieve all the opportunities that were created yesterday
+  =[Select id, Name, CloseDate from opportunity where createdDate= Yesterday];
