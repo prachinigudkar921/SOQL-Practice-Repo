@@ -6,3 +6,7 @@
   = [select name, (Select Id from OpportunityLineItems) from Opportunity];
 4. Retrieve all the opportunities that were created yesterday
   =[Select id, Name, CloseDate from opportunity where createdDate= Yesterday];
+5. Retrieve all leads that were created in the last 7 days and are not yet converted
+  =[select name from lead where IsConverted = false AND CreatedDate = Last_n_days:7];
+6. Retrieve the name, email, phone number of all the contacts where account rating is hot.
+  =[select name, email, phone from Contact where Account.Rating ='Hot'];
